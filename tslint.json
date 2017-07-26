@@ -1,4 +1,8 @@
 {
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
     "rules": {
         "class-name": true,
         "comment-format": [
@@ -22,8 +26,7 @@
         ],
         "semicolon": [
             true,
-            "always",
-            "ignore-bound-class-methods"
+            "never"
         ],
         "whitespace": [
             true,
@@ -51,6 +54,7 @@
                 "variable-declaration": "onespace"
             }
         ],
+        "no-console": [true, "log"],
         "no-internal-module": true,
         "no-trailing-whitespace": true,
         "no-null-keyword": true,
