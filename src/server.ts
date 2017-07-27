@@ -4,6 +4,7 @@ import * as cookieParser from "cookie-parser"
 import * as dotenv from "dotenv"
 import * as errorHandler from "errorhandler"
 import * as express from "express"
+import * as favicon from "serve-favicon"
 import * as session from "express-session"
 import * as expressValidator from "express-validator"
 import * as logger from "morgan"
@@ -13,19 +14,22 @@ dotenv.config()
 
 const app = express()
 
+import * as testController from "./controllers/testController"
+
 const sess: any = {
   cookie: {
-    secure: false,
+    secure: false
   },
   resave: true,
   saveUninitialized: true,
-  secret: "AbCdEfGhIjKlmN",
+  secret: "AbCdEfGhIjKlmN"
 }
 
 app.set("port", process.env.PORT || 3000)
 app.set("views", path.join(__dirname, "../views"))
 app.set("view engine", "pug")
 app.use(compression())
+//  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -38,9 +42,7 @@ app.use(session(sess))
 app.use(expressValidator())
 app.use(express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }))
 
-app.get("/", (req, res) => {
-  res.redirect(302, "https://www.google.co.th")
-})
+app.get("/", testController.getApi)
 
 app.use(errorHandler())
 

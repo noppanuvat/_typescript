@@ -54,11 +54,25 @@
                 "variable-declaration": "onespace"
             }
         ],
+        "trailing-comma": [
+            true,
+            {
+                "multiline": {
+                "objects": "never",
+                "arrays": "always",
+                "functions": "never",
+                "typeLiterals": "ignore"
+                }
+            }
+        ],
         "no-console": [true, "log"],
+        "interface-name": [true, "never-prefix"],
         "no-internal-module": true,
         "no-trailing-whitespace": true,
         "no-null-keyword": true,
         "prefer-const": true,
-        "jsdoc-format": true
+        "jsdoc-format": true,
+        "ordered-imports": false,
+        "no-unused-expression": [true, "allow-fast-null-checks"]
     }
 }
